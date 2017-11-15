@@ -2,7 +2,7 @@
 
 define('path_httpd_vhost', 'C:\xampp\apache\conf\extra');
 define('path_hosts', 'C:\Windows\System32\drivers\etc');
-define('path_doc_root', 'D:\server\public_html');
+define('path_doc_root', 'C:\xampp\htdoct');
 
 $file_vhost = path_httpd_vhost . "\httpd-vhosts.conf";
 $virtualHost = file_get_contents($file_vhost);
@@ -46,7 +46,7 @@ if (!empty($_POST['nama_domain'])) {
     $virtualHost .= $addVirtualHost;
     // Write the contents back to the file
     file_put_contents($file_vhost, $virtualHost);
-    $addHost = "\n10.1.1.15 " . $namaDomain;
+    $addHost = "\n127.0.0.1 " . $namaDomain;
     $host .= $addHost;
     file_put_contents($file_host, $host);
     if (file_exists(path_doc_root)) {
